@@ -75,6 +75,44 @@ if (mysqli_num_rows($result) == 1) {
                 <li class="list-group-item"><a href="https://wa.me/081211376296" target="_blank"><strong>Hubungi Penjual</strong></a> <?php echo htmlspecialchars($motor['nama_penjual']); ?></li>
             </ul>
         </div>
+
+        <!-- Payment Form -->
+        <div class="card mt-4">
+            <div class="card-header bg-success text-white">
+                <strong><i class="fas fa-credit-card"></i> Beli Sekarang</strong>
+            </div>
+            <div class="card-body">
+                <form action="process_payment.php" method="POST" id="payment-form">
+                    <input type="hidden" name="motor_id" value="<?php echo $motor['id']; ?>">
+                    <input type="hidden" name="amount" value="<?php echo $motor['harga']; ?>">
+                    
+                    <div class="mb-3">
+                        <label for="customer_name" class="form-label">Nama Lengkap *</label>
+                        <input type="text" class="form-control" name="customer_name" id="customer_name" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="customer_email" class="form-label">Email *</label>
+                        <input type="email" class="form-control" name="customer_email" id="customer_email" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="customer_phone" class="form-label">No. Telepon *</label>
+                        <input type="tel" class="form-control" name="customer_phone" id="customer_phone" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="alert alert-info">
+                            <strong>Total Pembayaran: Rp <?php echo number_format($motor['harga'], 0, ',', '.'); ?></strong>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success btn-lg w-100">
+                        <i class="fas fa-shopping-cart"></i> Beli Sekarang
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 

@@ -2,7 +2,7 @@
 // Pengaturan Database
 $db_host = 'localhost';
 $db_user = 'root'; // Ganti dengan username database Anda
-$db_pass = '';     // Ganti dengan password database Anda
+$db_pass = 'Testing123#';     // Ganti dengan password database Anda
 $db_name = 'jual_beli_motor'; // Ganti dengan nama database Anda
 
 // Membuat Koneksi
